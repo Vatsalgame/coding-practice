@@ -6,8 +6,10 @@ def print_combos(nested_list):
 def print_combo_helper(element, sub_list):
     if sub_list:
         for item in sub_list[0]:
-            print(element)
-            print_combo_helper(item, sub_list[1:])
+            combined = element + item
+            print_combo_helper(combined, sub_list[1:])
+    else:
+        print(element)
 
 
 if __name__ == "__main__":
