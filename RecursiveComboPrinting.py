@@ -9,7 +9,7 @@ def print_combo_helper(element, sub_list):
             combined = element + item
             print_combo_helper(combined, sub_list[1:])
     else:
-        print(element)
+        print(element),
 
 
 if __name__ == "__main__":
