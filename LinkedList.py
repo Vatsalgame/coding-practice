@@ -16,19 +16,16 @@ def print_linked_list(linked):
         current = current.next_node
 
 
-def sort_linked(linked):
+def insert_in_pos(linked, node):
     current = linked.head
-    while current is not None:
-        other = Node(current.next_node.value, current.next_node.next_node)
-        while other is not None:
-            if current.value > other.value:
-                temp = Node(current.value, current.next_node)
-                current.value = other.value
-                current.next_node = other.next_node
-                other.value = temp.value
-                other.next_node = temp.next_node
-            other = other.next_node
+    while current.next_node is not None:
+        if node.value > current.next_node.value:
+            temp = current.next_node
+            current.next_node = node
+            node.next_node = temp
+            break
         current = current.next_node
+
 
 if __name__ == "__main__":
     node1 = Node(1, None)
@@ -40,5 +37,6 @@ if __name__ == "__main__":
     print_linked_list(linked_list)
 
     print("")
-    sort_linked(linked_list)
+    node3 = Node(3, None)
+    insert_in_pos(linked_list, node3)
     print_linked_list(linked_list)
